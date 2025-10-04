@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [scope, animate] = useAnimate();
   const [showCurtain, setShowCurtain] = useState(true);
-  const [bg, setBg] = useState("black")
+  const [bg, setBg] = useState("#422006")
 
   useEffect(() => {
 
@@ -36,12 +36,20 @@ export default function Home() {
       //step 5: make intro text bounce again
       await animate("#intro-text", {y:285 }, { duration: 0.2});
 
-      await animate("#fullCurtain", {y:"0%"}, {duration: 1.5, delay: 1, ease: "easeInOut"}
-      ).then(()=>  {
-        setBg("gray");
+      //step 6: transition to the final resting place
+      await Promise.all([
+        animate("#fullCurtain", {y:"0%"}, {duration: 1.5, delay: 1, ease: "easeInOut"}),
+        (async () => {
+          await animate("#welcome-text", {y:20}, { duration: 0.5, delay: 1.5 });
+          await animate("#welcome-text", {y:0}, { duration: 0.2, ease: "easeOut" });
+        })(),
+      ]).then(() => {
+        setBg("#ffedd5")
       });
-    };
 
+      //step 7: make the buttons for projects, experience, skills, and about me 
+
+    };
     runSequence();
   }, [animate]);
 
@@ -55,7 +63,7 @@ export default function Home() {
       <motion.h1
         id="hello"
         initial={{ opacity: 0, y: -100 }}
-        className="text-9xl font-bold z-10"
+        className="text-9xl text-yellow-100 font-bold z-10"
       >
         Hello.
       </motion.h1>
@@ -63,7 +71,7 @@ export default function Home() {
       <motion.h1
         id="intro-text"
         initial={{ opacity: 0, y: 0 }}
-        className="text-4xl font-bold z-10 mt-4"
+        className="text-4xl text-orange-300 font-bold z-10 mt-4"
       >
         My name is Gabriel
       </motion.h1>
@@ -82,7 +90,7 @@ export default function Home() {
           id="photo-mask"
           initial={{ height: "15rem" , y: -50}}
           className="w-60 h-60 rounded-full absolute top-0 left-0"
-          style={{ backgroundColor: "#0a0a0a" }}
+          style={{ backgroundColor: "##713f12" }}
         />
       </div>
 
@@ -92,10 +100,20 @@ export default function Home() {
             id = "fullCurtain"
             initial={{ y: "-100%" }}
             onAnimationComplete={() => setShowCurtain(false)}
-            className="fixed top-0 left-0 w-full h-[200vh] bg-gray-500 z-50 pointer-events-none"
+            className="fixed top-0 left-0 w-full h-[200vh] bg-orange-100 z-50 pointer-events-none"
           />
         )}
       </div>
+        
+
+      <motion.h1
+        id="welcome-text"
+        initial={{ y: -500 }}
+        className="absolute top-[300px] left-1/2-translate-x-1/2 text-amber-800 text-6xl font-bold z-[60] mt-4"
+      >
+        welcome to my portfolio!
+      </motion.h1>
+
     </main>
   );
 }
