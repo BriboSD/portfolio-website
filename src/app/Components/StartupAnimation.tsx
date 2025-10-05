@@ -24,9 +24,9 @@ export default function StartupAnimation({ animate, setStartSeen, setBg }: Start
       await animate("#intro-text", { y: 310 }, { duration: 0.2 });
 
       await Promise.all([
-        animate("#fullCurtain", { y: "0%" }, { duration: 1.5, delay: 1, ease: "easeInOut" }),
+        animate("#fullCurtain", { y: "0%" }, { duration: 1.2, delay: 1.3, ease: "easeInOut" }),
         (async () => {
-          await animate("#welcome-text", { y: 20 }, { duration: 0.5, delay: 1.5 });
+          await animate("#welcome-text", { y: 20 }, { duration: 0.4, delay: 1.6 });
           await animate("#welcome-text", { y: 0 }, { duration: 0.2, ease: "easeOut" });
         })(),
       ]);
