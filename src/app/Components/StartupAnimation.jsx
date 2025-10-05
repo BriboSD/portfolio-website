@@ -2,13 +2,8 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
-interface StartupAnimationProps {
-  animate: any;
-  setStartSeen: (value: boolean) => void;
-  setBg: (color: string) => void;
-}
 
-export default function StartupAnimation({ animate, setStartSeen, setBg }: StartupAnimationProps) {
+export default function StartupAnimation({ animate, setStartSeen, setBg }) {
   useEffect(() => {
     const runSequence = async () => {
       await animate("#hello", { opacity: 1, y: 50 }, { duration: 1.5 });
