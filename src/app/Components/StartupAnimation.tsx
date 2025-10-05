@@ -2,7 +2,13 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
-export default function StartupAnimation({ animate, setStartSeen, setBg }) {
+interface StartupAnimationProps {
+  animate: any;
+  setStartSeen: (value: boolean) => void;
+  setBg: (color: string) => void;
+}
+
+export default function StartupAnimation({ animate, setStartSeen, setBg }: StartupAnimationProps) {
   useEffect(() => {
     const runSequence = async () => {
       await animate("#hello", { opacity: 1, y: 50 }, { duration: 1.5 });
@@ -10,12 +16,12 @@ export default function StartupAnimation({ animate, setStartSeen, setBg }) {
       await animate("#intro-text", { y: 60 }, { duration: 0.2, delay: 0.3 });
 
       await Promise.all([
-        animate("#intro-text", { y: 300 }, { duration: 0.3 }),
+        animate("#intro-text", { y: 320 }, { duration: 0.3 }),
         animate("#photo-mask", { y: 300 }, { duration: 0.3 }),
         animate("#photo", { opacity: 1, scale: 1 }, { duration: 0.1, delay: 0.1 }),
       ]);
 
-      await animate("#intro-text", { y: 285 }, { duration: 0.2 });
+      await animate("#intro-text", { y: 310 }, { duration: 0.2 });
 
       await Promise.all([
         animate("#fullCurtain", { y: "0%" }, { duration: 1.5, delay: 1, ease: "easeInOut" }),
@@ -26,6 +32,7 @@ export default function StartupAnimation({ animate, setStartSeen, setBg }) {
       ]);
 
       setBg("#ffedd5");
+      document.documentElement.style.setProperty("--background", "#ffedd5");
       setStartSeen(true);
     };
 
@@ -34,15 +41,15 @@ export default function StartupAnimation({ animate, setStartSeen, setBg }) {
 
   return (
     <>
-      <motion.h1 id="hello" initial={{ opacity: 0, y: -100 }} className="text-9xl text-yellow-100 font-bold z-10">
+      <motion.h1 id="hello" initial={{ opacity: 0, y: -100 }} className="absolute top-[160px] text-9xl text-yellow-100 font-bold z-10">
         Hello.
       </motion.h1>
 
-      <motion.h1 id="intro-text" initial={{ opacity: 0, y: 0 }} className="text-4xl text-orange-300 font-bold z-10 mt-4">
+      <motion.h1 id="intro-text" initial={{ opacity: 0, y: 0 }} className="absolute top-[270px] text-4xl text-orange-300 font-bold z-10 mt-4">
         My name is Gabriel
       </motion.h1>
 
-      <div className="absolute top-[365px] left-1/2 -translate-x-1/2 mt-4">
+      <div className="absolute top-[330px] left-1/2 -translate-x-1/2 mt-4">
         <motion.img
           id="photo"
           src="/images/tempPic.png"
@@ -54,7 +61,7 @@ export default function StartupAnimation({ animate, setStartSeen, setBg }) {
           id="photo-mask"
           initial={{ height: "15rem", y: -50 }}
           className="w-60 h-60 rounded-full absolute top-0 left-0"
-          style={{ backgroundColor: "#713f12" }}
+          style={{ backgroundColor: "#422006" }}
         />
       </div>
 
