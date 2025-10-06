@@ -14,7 +14,9 @@ import AboutMe from "./Components/AboutMe";
 export default function Home() {
   const [scope, animate] = useAnimate();
   const [showCurtain, setShowCurtain] = useState(true);
-  const [bg, setBg] = useState("#422006")
+  const [bg, setBg] = useState("#ffedd5") 
+  const [underlineLoaded, setUnderlineLoaded] = useState(false);
+  //422006 <-- old brown color
   
   const tabs = [
     { id: "homepage", label: "Home" },
@@ -23,7 +25,7 @@ export default function Home() {
     { id: "about", label: "About Me" },
   ];
   const [selectedTab, setSelectedTab] = useState("homepage")
-  const [startSeen, setStartSeen] = useState(false)
+  const [startSeen, setStartSeen] = useState(true)
 
 
   return (
@@ -35,9 +37,25 @@ export default function Home() {
         <StartupAnimation animate={animate} setStartSeen={setStartSeen} setBg={setBg}/>
       ) : (
       <>
-        <div className="absolute top-[30px] text-amber-800 text-3xl font-bold z-[60] mt-4">
+
+        {/* tab navigation bar */}
+        <nav className="sticky top-0 w-full bg-[#ffedd5] text-amber-800 text-1xl font-bold z-[70] py-4 flex justify-center">
           {/* Tab logic */}
-          <div className="flex space-x-22 mb-4 mt-8">
+          <div className="flex space-x-22 mb-4 mt-1">
+          <motion.div
+            initial={{ x: "-100vw", y: 0, width: "100vw", height: "4px" }}
+            animate={{
+              x: "0%",
+              y: ["0%"], // rise up
+              height: ["4px", "150px"], // grow taller
+            }}
+            transition={{
+              x: { duration: 0.5 },
+              y: { delay: 1, duration: 0.2 },
+              height: { delay: 0.8, duration: 0.1, ease: "easeOut" },
+            }}
+            style={{ backgroundColor: "#461901", position: "absolute", bottom: 0, left: 0 }}
+          />
             {tabs.map((tab, index) => {
 
               let initialX = 0;
@@ -48,36 +66,54 @@ export default function Home() {
               else if (tab.id == "about") initialX = 30
 
               return (
+                
                 <motion.div key={tab.id} className="relative flex flex-col items-center">
+                  {/* tab titles */}
                   <motion.button 
                   key={tab.id}
                   initial={{x: initialX, y: initialY, opacity: 0}}
-                  animate={{x: 0, y: 0, opacity: 1, transition: {duration: 0.5, delay: index*0.2}}}
+                  className="text-amber-100"
+                  animate={{x: 0, y: 0, opacity: 1, transition: {duration: 0.5, delay: 1.2+index*0.2}}}
                   onClick={() => setSelectedTab(tab.id)}
-                  whileHover={{ scale: 1.2, color: "#d97706"}}
+                  whileHover={{ scale: 1.2, color: "#fcd34d"}}
                   >
                     {tab.label}  
                   </motion.button>
                 
-
+                {/* underline logic */}
                 {selectedTab === tab.id && (
                   <motion.div
                     layoutId="underline"
-                    className="absolute left-0 right-0 h-[3px] bg-red-900"
+                    className="absolute left-0 right-0 h-[3px] bg-yellow-600"
+                    animate={{ opacity: 1 }}
                     style={{top: "100%"}}
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    initial={underlineLoaded ? false : { opacity: 0 }}  // only fade-in once
+                    transition={{ type: "spring", stiffness: 500, damping: 30, delay: underlineLoaded ? 0 : 2.3  }}
+                    onAnimationComplete={() => !underlineLoaded && setUnderlineLoaded(true)}
                   />
                 )}
                 </motion.div>
               );
           })}
           </div>
-        </div>
-        <div className="absolute inset-0 z-[60] pointer-events-none">
-            {selectedTab === "homepage" && <HomePage/>}
-            {selectedTab === "experience" && <Experience/>}
-            {selectedTab === "projects" && <Projects/>}
-            {selectedTab === "about" && <AboutMe/>}
+        </nav>
+
+        <div className="w-full overflow-y-scroll scroll-smooth snap-y snap-mandatory pt-0">
+          <section id="homepage" className="snap-start min-h-screen">
+            <HomePage />
+          </section>
+
+          <section id="projects" className="snap-start min-h-screen">
+            <Projects />
+          </section>
+
+          <section id="experience" className="snap-start min-h-screen">
+            <Experience />
+          </section>
+
+          <section id="about" className="snap-start min-h-screen">
+            <AboutMe />
+          </section>
         </div>
       </>
         

@@ -6,7 +6,7 @@ import { useEffect } from "react";
 export default function StartupAnimation({ animate, setStartSeen, setBg }) {
   useEffect(() => {
     const runSequence = async () => {
-      await animate("#hello", { opacity: 1, y: 50 }, { duration: 1.5 });
+      await animate("#hello", { opacity: 1, y: 50 }, { duration: 1 });
       await animate("#intro-text", { opacity: 1, y: 70 }, { duration: 0.8 });
       await animate("#intro-text", { y: 60 }, { duration: 0.2, delay: 0.3 });
 
@@ -19,9 +19,9 @@ export default function StartupAnimation({ animate, setStartSeen, setBg }) {
       await animate("#intro-text", { y: 310 }, { duration: 0.2 });
 
       await Promise.all([
-        animate("#fullCurtain", { y: "0%" }, { duration: 1.2, delay: 1.3, ease: "easeInOut" }),
+        animate("#fullCurtain", { y: "0%" }, { duration: 1.2, delay: 0.7, ease: "easeInOut" }),
         (async () => {
-          await animate("#welcome-text", { y: 20 }, { duration: 0.4, delay: 1.6 });
+          await animate("#welcome-text", { y: 20 }, { duration: 0.4, delay: 1 });
           await animate("#welcome-text", { y: 0 }, { duration: 0.2, ease: "easeOut" });
         })(),
       ]);
