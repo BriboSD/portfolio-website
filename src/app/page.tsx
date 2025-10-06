@@ -35,17 +35,42 @@ export default function Home() {
         <StartupAnimation animate={animate} setStartSeen={setStartSeen} setBg={setBg}/>
       ) : (
       <>
-        <div className="absolute top-[70px] text-amber-800 text-3xl font-bold z-[60] mt-4">
+        <div className="absolute top-[30px] text-amber-800 text-3xl font-bold z-[60] mt-4">
           {/* Tab logic */}
           <div className="flex space-x-22 mb-4 mt-8">
-            {tabs.map(tab => (
-              <button 
-              key={tab.id}
-              onClick={() => setSelectedTab(tab.id)}
-              >
-                {tab.label}  
-              </button>
-            ))}
+            {tabs.map((tab, index) => {
+
+              let initialX = 0;
+              let initialY = 0;
+              if (tab.id == "homepage") initialX = -30;
+              else if (tab.id == "projects") initialY = -30
+              else if (tab.id == "experience") initialY = 30
+              else if (tab.id == "about") initialX = 30
+
+              return (
+                <motion.div key={tab.id} className="relative flex flex-col items-center">
+                  <motion.button 
+                  key={tab.id}
+                  initial={{x: initialX, y: initialY, opacity: 0}}
+                  animate={{x: 0, y: 0, opacity: 1, transition: {duration: 0.5, delay: index*0.2}}}
+                  onClick={() => setSelectedTab(tab.id)}
+                  whileHover={{ scale: 1.2, color: "#d97706"}}
+                  >
+                    {tab.label}  
+                  </motion.button>
+                
+
+                {selectedTab === tab.id && (
+                  <motion.div
+                    layoutId="underline"
+                    className="absolute left-0 right-0 h-[3px] bg-red-900"
+                    style={{top: "100%"}}
+                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  />
+                )}
+                </motion.div>
+              );
+          })}
           </div>
         </div>
         <div className="absolute inset-0 z-[60] pointer-events-none">
