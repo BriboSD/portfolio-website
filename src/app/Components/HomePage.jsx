@@ -1,11 +1,14 @@
 
 "use client";
-import { motion } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import { useEffect } from "react";
 
-export default function HomePage() {
+export default function HomePage({scrollYProgress}) {
+  const ypos = useTransform(scrollYProgress, [0, 0.25], [0, 600]);
     return (
-      <div className="relative flex text-amber-800 text-6xl font-bold z-[60]  bg-[#ffedd5]">
+      <motion.div className="relative flex text-amber-800 text-6xl font-bold z-[60]  bg-[#ffedd5]"
+      style={{y: ypos}}
+      >
         {/* Image with overlay */}
         <div className="relative">
           <motion.img
@@ -42,6 +45,6 @@ export default function HomePage() {
             
           </motion.h2>
         </div>
-      </div>
+      </motion.div>
     );
   }
