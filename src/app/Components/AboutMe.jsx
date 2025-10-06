@@ -20,35 +20,35 @@ export default function AboutMe( {scrollYProgress, fontClass }) {
             transition={{ duration: 1, delay: 0.3 }}
           >
             {/* Title */}
-            <h1 className={`${fontClass} text-8xl tracking-wide text-amber-700`}>
+            <h1 className={`${fontClass} text-8xl tracking-wide text-red-700`}>
               ME AT A GLANCE
             </h1>
     
             {/* bullet point section */}
             <ul className="text-2xl leading-relaxed font-semibold space-y-3">
           <li>
-            <span className="text-slate-700">School:</span>{" "}
-            <span className="text-blue-400">
+            <span className="text-amber-700">School:</span>{" "}
+            <span className="text-yellow-600">
               University of California, Los Angeles
             </span>
           </li>
           <li>
-            <span className="text-sky-400">Disciplines:</span>{" "}
-            <span className="text-slate-200">
+            <span className="text-amber-800">Disciplines:</span>{" "}
+            <span className="text-yellow-600">
               Cognitive Science Major, Data Science Engineering Minor
             </span>
           </li>
           <li>
-            <span className="text-sky-400">Year:</span>{" "}
-            <span className="text-slate-200">Undergrad Junior</span>
+            <span className="text-amber-800">Year:</span>{" "}
+            <span className="text-yellow-600">Undergrad Junior</span>
           </li>
           <li>
-            <span className="text-sky-400">Hometown:</span>{" "}
-            <span className="text-slate-200">Washington, D.C.</span>
+            <span className="text-amber-800">Hometown:</span>{" "}
+            <span className="text-yellow-600">Washington, D.C.</span>
           </li>
           <li>
-            <span className="text-sky-400">Hobbies:</span>{" "}
-            <span className="text-slate-200">
+            <span className="text-amber-800">Hobbies:</span>{" "}
+            <span className="text-yellow-600">
               Travel, Board Games, Horror Movies, Video Games
             </span>
           </li>
@@ -57,7 +57,7 @@ export default function AboutMe( {scrollYProgress, fontClass }) {
     
           {/* more in-depth overview thing */}
           <motion.div
-            className="flex flex-col w-1/2 pl-12 text-xl leading-relaxed text-amber-50 font-medium"
+            className="flex flex-col w-1/2 pl-12 text-xl leading-relaxed text-yellow-600 font-medium"
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.6 }}

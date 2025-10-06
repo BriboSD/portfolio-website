@@ -22,7 +22,7 @@ export default function Home() {
   const [underlineLoaded, setUnderlineLoaded] = useState(false);
   const {scrollYProgress} = useScroll();
 
-  const aboutypos = useTransform(scrollYProgress, [0, 0.25], [0, -500]);
+  const aboutypos = useTransform(scrollYProgress, [0, 0.25], [0, -10]);
   //422006 <-- old brown color
   
   const tabs = [
