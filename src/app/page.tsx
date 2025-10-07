@@ -1,28 +1,36 @@
 "use client";
 
-import { motion, useAnimate } from "framer-motion";
+import { motion, useAnimate, useScroll, useTransform} from "framer-motion";
 import { useEffect, useState } from "react";
 import StartupAnimation from "./Components/StartupAnimation";
 import HomePage from "./Components/HomePage";
 import Experience from "./Components/Experience";
 import Projects from "./Components/Projects";
 import AboutMe from "./Components/AboutMe";
+import { Bebas_Neue } from 'next/font/google'
 
 
-
+const bebas = Bebas_Neue({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export default function Home() {
   const [scope, animate] = useAnimate();
   const [showCurtain, setShowCurtain] = useState(true);
   const [bg, setBg] = useState("#ffedd5") 
   const [underlineLoaded, setUnderlineLoaded] = useState(false);
+  const {scrollYProgress} = useScroll();
+
+  const aboutypos = useTransform(scrollYProgress, [0, 0.25], [0, -200]);
+  const experienceypos = useTransform(scrollYProgress, [0, 0.25], [0, -500]);
   //422006 <-- old brown color
   
   const tabs = [
     { id: "homepage", label: "Home" },
+    { id: "about", label: "About Me" },
     { id: "projects", label: "Projects" },
     { id: "experience", label: "Experience" },
-    { id: "about", label: "About Me" },
   ];
   const [selectedTab, setSelectedTab] = useState("homepage")
   const [startSeen, setStartSeen] = useState(true)
@@ -98,22 +106,31 @@ export default function Home() {
           </div>
         </nav>
 
-        <div className="w-full overflow-y-scroll scroll-smooth snap-y snap-mandatory pt-0">
-          <section id="homepage" className="snap-start min-h-screen">
-            <HomePage />
-          </section>
+        <div className="relative w-full overflow-y-scroll scroll-smooth snap-y snap-mandatory pt-0">
+          <motion.section id="homepage" className="snap-start min-h-screen relative z-[10]">
+            <HomePage scrollYProgress={scrollYProgress} />
+          </motion.section>
+
+          <motion.section id="about" className="snap-start relative z-[50]"
+            style={{
+              y: aboutypos
+            }}
+          >
+            <AboutMe scrollYProgress={scrollYProgress} fontClass={bebas.className}/>
+          </motion.section>
+
+          <motion.section id="experience" className="snap-start min-h-screen"
+          style={{
+            y: experienceypos
+          }}>
+            <Experience />
+          </motion.section>
 
           <section id="projects" className="snap-start min-h-screen">
             <Projects />
           </section>
 
-          <section id="experience" className="snap-start min-h-screen">
-            <Experience />
-          </section>
-
-          <section id="about" className="snap-start min-h-screen">
-            <AboutMe />
-          </section>
+          
         </div>
       </>
         
