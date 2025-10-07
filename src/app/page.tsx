@@ -22,7 +22,8 @@ export default function Home() {
   const [underlineLoaded, setUnderlineLoaded] = useState(false);
   const {scrollYProgress} = useScroll();
 
-  const aboutypos = useTransform(scrollYProgress, [0, 0.25], [0, -10]);
+  const aboutypos = useTransform(scrollYProgress, [0, 0.25], [0, -200]);
+  const experienceypos = useTransform(scrollYProgress, [0, 0.25], [0, -500]);
   //422006 <-- old brown color
   
   const tabs = [
@@ -110,7 +111,7 @@ export default function Home() {
             <HomePage scrollYProgress={scrollYProgress} />
           </motion.section>
 
-          <motion.section id="about" className="snap-start min-h-screen bg-emerald-100 relative z-[50]"
+          <motion.section id="about" className="snap-start relative z-[50]"
             style={{
               y: aboutypos
             }}
@@ -118,13 +119,18 @@ export default function Home() {
             <AboutMe scrollYProgress={scrollYProgress} fontClass={bebas.className}/>
           </motion.section>
 
+          <motion.section id="experience" className="snap-start min-h-screen"
+          style={{
+            y: experienceypos
+          }}>
+            <Experience />
+          </motion.section>
+
           <section id="projects" className="snap-start min-h-screen">
             <Projects />
           </section>
 
-          <section id="experience" className="snap-start min-h-screen">
-            <Experience />
-          </section>
+          
         </div>
       </>
         
