@@ -22,8 +22,11 @@ export default function Home() {
   const [underlineLoaded, setUnderlineLoaded] = useState(false);
   const {scrollYProgress} = useScroll();
 
+  //these values may have to change if extra content is added---they are not dynamically placed unfortunately
   const aboutypos = useTransform(scrollYProgress, [0, 0.25], [0, -200]);
   const experienceypos = useTransform(scrollYProgress, [0, 0.25], [0, -500]);
+  const projectsypos = useTransform(scrollYProgress, [0, 0.25], [0, -500]); 
+  
   //422006 <-- old brown color
   
   const tabs = [
@@ -126,9 +129,13 @@ export default function Home() {
             <Experience />
           </motion.section>
 
-          <section id="projects" className="snap-start min-h-screen">
+          <motion.section id="projects" className="snap-start min-h-screen"
+            style={{
+              y: projectsypos
+            }}
+            >
             <Projects />
-          </section>
+          </motion.section>
 
           
         </div>
