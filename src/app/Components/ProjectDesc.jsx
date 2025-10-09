@@ -1,42 +1,70 @@
 "use client";
 import { motion } from "framer-motion";
 
-export default function ProjectDesc({ image, title, description }) {
+export default function ProjectDesc({ image, title, description, techUsed }) {
 
-    const overlayvariants = {
-        hover: {opacity: 1},
-        rest: {opacity: 0}
-
-    }
   return (
 
 
     <motion.div
-      className="relative w-full h-140 overflow-hidden bg-orange-100 shadow-lg cursor-pointer"
+      className="relative w-[70dvh] h-[50dvh] bg-orange-100 shadow-lg overflow-hidden cursor-pointer"
+      initial="rest"
+      whileHover="hover"
+      animate="rest"
     >
 
-      <img
+      <div className="p-0">
+        <h3 className="text-xl font-semibold mb-3 mt-3 text-amber-800 text-center">{title}</h3>
+      </div>
+
+      <motion.img
         src={image}
         alt={title}
-        className="w-full h-100 object-cover"
+        className="w-full h-[55dvh] transform -translate-y-[2%]  object-cover z-10"
         variants={{
-            rest: { scale: 1 },
-            hover: { scale: 1.1 },
+            hover: { scale: 1.19},
           }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
       />
 
+          {/* cover for image*/}
       <motion.div
-      variants={overlayvariants}
-      className="w-full h-100 bg-black"
+      variants={{
+        hover: {scale: 1.05, opacity: 0.6},
+        rest: {scale: 1, opacity: 0}
+      }}
+      transition={{ duration: 0.4, ease: "easeOut"}}
+      className="absolute inset-0 w-full h-full bg-black "
+      />
+      
+      <motion.div className="absolute inset-0 w-full h-full z-20 pl-2 pr-2"
+      variants={{
+        hover: {opacity: 1},
+        rest: {opacity: 0}
+      }}
+      transition={{duration: 0.4, ease: "easeOut"}}
       >
-        {/* here goes overlay logic (i.e. animation, and text from component import*/}
-      </motion.div>
+           <motion.h3 className="text-2xl font-semibold mb-2 mt-2 text-center text-white">{title}</motion.h3>
+           <motion.p className="text-white text-base text-center transform translate-y-[50%] leading-relaxed">{description}</motion.p>
 
-      <div className="p-5">
-        <h3 className="text-2xl font-semibold mb-2 text-amber-800">{title}</h3>
-        <p className="text-amber-900 text-base leading-relaxed">{description}</p>
-      </div>
+           {techUsed && techUsed.length > 0 && (
+          <div className="flex flex-wrap justify-center transform translate-y-[600%] gap-3 mt-2">
+            {techUsed.map((tech, index) => (
+              <motion.span
+                key={index}
+                className="text-white outline-2 outline-white px-3 py-1 rounded-full text-sm font-medium shadow-sm"
+                variants={{
+                  rest: { opacity: 0, y: 10 },
+                  hover: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+              >
+                {tech}
+              </motion.span>
+            ))}
+          </div>
+        )}
+        </motion.div>
     </motion.div>
   );
 }

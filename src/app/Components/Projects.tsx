@@ -7,15 +7,24 @@ export default function Projects() {
     const projects = [
         {
           image: "/images/bpop.png",
-          title: "AI Book Assistant",
+          title: "BPop",
           description:
-            "An intelligent book Q&A system that retrieves and answers questions based on embedded text chunks.",
+            "A full-stack Depop-style app designed for the UCLA community to buy and sell items with a MongoDB backend. I implented security features like password hashing using bcrypt and JWT for session management, and defined and managed the site's databse.",
+          techUsed: ["React", "Javascript", "MongoDB"]
         },
         {
-          image: "/images/bpop.png",
-          title: "B-Pop Marketplace",
+          image: "/images/website.png",
+          title: "Personal Website",
           description:
-            "A full-stack Depop-style app for buying and selling items with a MongoDB backend.",
+            "I created this website without a templae, using react and the motion library for animations. I used nextjs as my react framework, and hosted this website through Vercel. Thanks for stopping by!",
+          techUsed: ["React", "Javascript", "tailwind css"]
+        },
+        {
+          image: "/images/CNN.png",
+          title: "Image Classifier",
+          description:
+            "A Convolutional Neural Network (CNN) model I created that is trained on the CIFAR10 dataset. Defined {put parameters I defined here} ",
+          techUsed: ["python", "pyTorch", "Machine Learning"]
         },
       ];
 
@@ -39,7 +48,10 @@ export default function Projects() {
                     image={project.image}
                     title={project.title}
                     description={project.description}
+                    techUsed={project.techUsed}
                     />
+
+                    
             ))}
             </motion.div>  
             

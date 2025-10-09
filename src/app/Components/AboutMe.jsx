@@ -17,7 +17,7 @@ export default function AboutMe( {scrollYProgress, fontClass }) {
             className="flex flex-col w-1/2 pr-12 ml-15 space-y-6"
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0,  }}
-            transition={{ duration: 1, delay: 0.6}}
+            transition={{ duration: 1, delay: 0.2}}
           >
         
             {/* Title */}
@@ -70,10 +70,10 @@ export default function AboutMe( {scrollYProgress, fontClass }) {
             className="flex flex-col w-[1000px] mt-20 text-l leading-relaxed text-yellow-700 font-medium mr-10"
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
+            transition={{ duration: 1, delay: 0.2 }}
           >
             <p className="mb-6">
-                I am a Washington D.C. native and am currently in my 3rd year student at University of California, Los Angeles. I am currently pursuing 
+                I am a Washington D.C. native and am currently a 3rd year student at University of California, Los Angeles. I am currently pursuing 
                 a BS in Cognitive Science, with a concentration in computing, and a Data Science Engineering Minor.
                 I love to work with databases and data pipelines, be it through writing database queries for a 
                 website's api, or through processing, cleaning, and analyzing databases to answer research questions 
