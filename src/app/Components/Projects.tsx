@@ -25,7 +25,7 @@ export default function Projects() {
           image: "/images/CNN.png",
           title: "Image Classifier",
           description:
-            "A Convolutional Neural Network (CNN) model I created that is trained on the CIFAR10 dataset. Defined {put parameters I defined here} ",
+            "A Convolutional Neural Network (CNN) model I created that is trained on the CIFAR10 dataset.",
           techUsed: ["Python", "PyTorch", "Machine Learning"],
           projLink: "https://github.com/BriboSD/CNNmodel/blob/main/Gabriel'sCNNModel.ipynb"
         },

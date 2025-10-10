@@ -1,12 +1,12 @@
 
 "use client";
 import { motion, useTransform } from "framer-motion";
-import { useEffect } from "react";
+import { Github } from "lucide-react";
 
 export default function HomePage({scrollYProgress}) {
   const ypos = useTransform(scrollYProgress, [0, 0.25], [0, 400]);
     return (
-      <motion.div className="relative flex text-amber-800 text-6xl z-[60] mt-0 ml-30 bg-[#ffedd5]"
+      <motion.div className="relative w-full flex text-amber-800 text-6xl z-[60] mt-0 bg-[#ffedd5]"
       >
         {/* Animated line box */}
         <motion.svg viewBox="0 0 160 160" width={630} height={630} className="absolute ml-150 mt-20">
@@ -39,20 +39,35 @@ export default function HomePage({scrollYProgress}) {
 
 
         {/* Image with overlay */}
-        <div className="relative"
-        style={{y: ypos}}
+        <div className="relative flex flex-col items-center" style={{ y: ypos }}>
+        <motion.img
+          id="photo"
+          src="/images/newPhoto.png"
+          alt="Gabriel"
+          initial={{ opacity: 0, y: -100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="w-130 h-130 mt-20 rounded-full object-cover"
+        />
+
+        {/* GitHub Button */}
+        <motion.a
+          href="https://github.com/BriboSD"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.8 }}
+          className="
+            absolute left-1/2 transform translate-y-[75dvh] -translate-x-1/2 mt-4
+            bg-amber-800 text-[#ffedd5] p-3 rounded-full
+            hover:bg-amber-600
+            transition-colors duration-300
+          "
         >
-          <motion.img
-            id="photo"
-            src="/images/newPhoto.png"
-            alt="Gabriel"
-            initial={{ opacity: 0, y: -100 }}
-            animate={{opacity: 1, y:0}}
-            transition={{delay: 1, duration: 1}}
-            className="w-130 h-130 mt-20 rounded-full object-cover"
-          />
-  
-         </div>
+          <Github size={32} />
+        </motion.a>
+      </div>
   
         {/* Text */}
         <div className="absolute mt-40 left-[650px] mt-5 text-center font-extrabold">
