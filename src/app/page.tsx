@@ -10,6 +10,7 @@ import AboutMe from "./Components/AboutMe";
 import { Bebas_Neue } from 'next/font/google'
 
 
+
 const bebas = Bebas_Neue({
   weight: "400",
   subsets: ["latin"],
@@ -24,8 +25,8 @@ export default function Home() {
 
   //these values may have to change if extra content is added---they are not dynamically placed unfortunately
   const aboutypos = useTransform(scrollYProgress, [0, 0.25], [0, -200]);
-  const experienceypos = useTransform(scrollYProgress, [0, 0.25], [0, -500]);
-  const projectsypos = useTransform(scrollYProgress, [0, 0.25], [0, -500]); 
+  const experienceypos = useTransform(scrollYProgress, [0, 0.25], [0, -400]);
+  const projectsypos = useTransform(scrollYProgress, [0, 0.25], [0, -100]); 
   
   //422006 <-- old brown color
   
