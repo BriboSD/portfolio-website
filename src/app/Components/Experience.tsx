@@ -5,7 +5,7 @@ import JobDesc from "./JobDesc"
 export default function Experience() {
     return (
         <motion.div
-          className="flex flex-col items-center min-h-[60vh] px-20 py-30 gap-y-40 bg-rose-200 z-[60]"
+          className="flex flex-col items-center min-h-[60vh] px-20 py-10 gap-y-20 bg-[#ffedd5] z-[60]" //bg-[#FAC893]
           >
             <motion.div
             initial={{opacity: 0, y: -50}}

@@ -1,13 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
 
-export default function ProjectDesc({ image, title, description, techUsed }) {
+export default function ProjectDesc({ image, title, description, techUsed, projlink }) {
 
   return (
 
 
-    <motion.div
-      className="relative w-[70dvh] h-[50dvh] bg-orange-100 shadow-lg overflow-hidden cursor-pointer"
+    <motion.a
+      href={projlink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative w-[7W0dvh] h-[50dvh] bg-orange-100 shadow-lg overflow-hidden cursor-pointer"
       initial="rest"
       whileHover="hover"
       animate="rest"
@@ -20,7 +23,7 @@ export default function ProjectDesc({ image, title, description, techUsed }) {
       <motion.img
         src={image}
         alt={title}
-        className="w-full h-[55dvh] transform -translate-y-[2%]  object-cover z-10"
+        className="w-full h-[45dvh] transform -translate-y-[2%]  object-cover z-10"
         variants={{
             hover: { scale: 1.19},
           }}
@@ -65,6 +68,6 @@ export default function ProjectDesc({ image, title, description, techUsed }) {
           </div>
         )}
         </motion.div>
-    </motion.div>
+    </motion.a>
   );
 }

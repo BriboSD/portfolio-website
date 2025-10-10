@@ -40,7 +40,7 @@ export default function Home() {
 
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen w-full"
+    <main className="flex flex-col items-center justify-center w-full"
     ref={scope}
     style={{ backgroundColor: bg }}
     >
@@ -109,7 +109,7 @@ export default function Home() {
           </div>
         </nav>
 
-        <div className="relative w-full overflow-y-scroll scroll-smooth snap-y snap-mandatory pt-0">
+        <div className="relative w-full scroll-smooth overflow-hidden snap-y snap-mandatory pt-0">
           <motion.section id="homepage" className="snap-start min-h-screen relative z-[10]">
             <HomePage scrollYProgress={scrollYProgress} />
           </motion.section>
@@ -139,6 +139,16 @@ export default function Home() {
 
           
         </div>
+
+        <footer className="w-full text-center py-10 text-amber-800 font-semibold z-[100]">
+          You can contact me at
+          <a
+            href="mailto:GSchwinden232@gmail.com"
+            className="text-blue-700 underline ml-2 hover:text-blue-900"
+          >
+            GSchwinden232@gmail.com
+          </a>
+        </footer>
       </>
         
       )
