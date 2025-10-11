@@ -47,7 +47,7 @@ export default function Projects() {
             initial={{opacity: 0, y: -50}}
             whileInView={{opacity: 1, y: 0}}
             transition={{duration: 1, delay: 0.15}}
-            className="text-4xl text-teal-600"
+            className="text-4xl text-amber-700"
             >
               Projects
             </motion.div>
