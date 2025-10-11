@@ -10,7 +10,6 @@ export default function AboutMe( {scrollYProgress, fontClass }) {
         // overall section container
         <motion.div
           className="flex flex-row justify-center items-start min-h-[60vh] px-20 py-14 bg-orange-200 text-amber-100 z-[60]"
-          style={{ y: ypos }}
         >
           {/* "me at a glance part"*/}
           <motion.div

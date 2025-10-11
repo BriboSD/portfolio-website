@@ -48,7 +48,7 @@ export default function Home() {
 
   //these values may have to change if extra content is added---they are not dynamically placed unfortunately
   const aboutypos = useTransform(scrollYProgress, [0, 0.25], [0, -200]);
-  const experienceypos = useTransform(scrollYProgress, [0, 0.25], [0, -400]);
+  const experienceypos = useTransform(scrollYProgress, [0, 0.25], [0, -200]);
   const projectsypos = useTransform(scrollYProgress, [0, 0.25], [0, -100]); 
   
   //422006 <-- old brown color
@@ -136,34 +136,35 @@ export default function Home() {
         </nav>
 
         <div className="relative w-full scroll-smooth overflow-hidden snap-y snap-mandatory pt-0">
-          <motion.section id="homepage" ref = {homeRef} className="snap-start min-h-screen relative z-[10]">
+        <motion.section id="homepage" className="snap-start scroll-mt-[20vh] min-h-screen relative z-[10]">
+          <div ref={homeRef}>
             <HomePage scrollYProgress={scrollYProgress} />
-          </motion.section>
+          </div>
+        </motion.section>
 
-          <motion.section id="about" ref = {aboutRef} className="snap-start relative z-[50]"
-            style={{
-              y: aboutypos
-            }}
-          > 
-            <div ref={aboutRef}>
-              <AboutMe scrollYProgress={scrollYProgress} fontClass={bebas.className}/>
-            </div>
-          </motion.section>
+        <motion.section id="about" className="snap-start relative scroll-mt-[20vh] z-[50]"
+          style={{ y: aboutypos }}
+        >
+          <div ref={aboutRef}>
+            <AboutMe scrollYProgress={scrollYProgress} fontClass={bebas.className}/>
+          </div>
+        </motion.section>
 
-          <motion.section id="experience" ref = {experienceRef} className="snap-start min-h-screen"
-          style={{
-            y: experienceypos
-          }}>
+        <motion.section id="experience" className="snap-start scroll-mt-[20vh] min-h-screen"
+          style={{ y: experienceypos }}
+        >
+          <div ref={experienceRef}>
             <Experience />
-          </motion.section>
+          </div>
+        </motion.section>
 
-          <motion.section id="projects" ref = {projectsRef} className="snap-start min-h-screen"
-            style={{
-              y: projectsypos
-            }}
-            >
+        <motion.section id="projects" className="snap-start min-h-screen"
+          style={{ y: projectsypos }}
+        >
+          <div ref={projectsRef}>
             <Projects />
-          </motion.section>
+          </div>
+        </motion.section>
 
           
         </div>
