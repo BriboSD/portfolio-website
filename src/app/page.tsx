@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useAnimate, useScroll, useTransform} from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useAnimate, useScroll, useInView, useTransform} from "framer-motion";
+import { useEffect, useState, useRef } from "react";
 import StartupAnimation from "./Components/StartupAnimation";
 import HomePage from "./Components/HomePage";
 import Experience from "./Components/Experience";
@@ -23,6 +23,29 @@ export default function Home() {
   const [underlineLoaded, setUnderlineLoaded] = useState(false);
   const {scrollYProgress} = useScroll();
 
+  const [selectedTab, setSelectedTab] = useState("homepage")
+  const [startSeen, setStartSeen] = useState(true)
+
+
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const experienceRef = useRef(null);
+  const projectsRef = useRef(null);
+
+  const homeInView = useInView(homeRef, { amount: 0.4 });
+  const aboutInView = useInView(aboutRef, { amount: 0.4 });
+  const experienceInView = useInView(experienceRef, { amount: 0.4 });
+  const projectsInView = useInView(projectsRef, { amount: 0.4 });
+
+  useEffect(() => {
+    if (homeInView) setSelectedTab("homepage");
+    else if (aboutInView) setSelectedTab("about");
+    else if (experienceInView) setSelectedTab("experience");
+    else if (projectsInView) setSelectedTab("projects");
+  }, [homeInView, aboutInView, experienceInView, projectsInView]);
+  
+
+
   //these values may have to change if extra content is added---they are not dynamically placed unfortunately
   const aboutypos = useTransform(scrollYProgress, [0, 0.25], [0, -200]);
   const experienceypos = useTransform(scrollYProgress, [0, 0.25], [0, -400]);
@@ -33,11 +56,10 @@ export default function Home() {
   const tabs = [
     { id: "homepage", label: "Home" },
     { id: "about", label: "About Me" },
-    { id: "projects", label: "Projects" },
     { id: "experience", label: "Experience" },
+    { id: "projects", label: "Projects" },
   ];
-  const [selectedTab, setSelectedTab] = useState("homepage")
-  const [startSeen, setStartSeen] = useState(true)
+  
 
 
   return (
@@ -86,7 +108,10 @@ export default function Home() {
                   initial={{x: initialX, y: initialY, opacity: 0}}
                   className="text-amber-100"
                   animate={{x: 0, y: 0, opacity: 1, transition: {duration: 0.5, delay: 1.2+index*0.2}}}
-                  onClick={() => setSelectedTab(tab.id)}
+                  onClick={() => {
+                    setSelectedTab(tab.id)
+                    document.getElementById(tab.id)?.scrollIntoView({ behavior: "smooth" });
+                  }}
                   whileHover={{ scale: 1.2, color: "#fcd34d"}}
                   >
                     {tab.label}  
@@ -111,26 +136,28 @@ export default function Home() {
         </nav>
 
         <div className="relative w-full scroll-smooth overflow-hidden snap-y snap-mandatory pt-0">
-          <motion.section id="homepage" className="snap-start min-h-screen relative z-[10]">
+          <motion.section id="homepage" ref = {homeRef} className="snap-start min-h-screen relative z-[10]">
             <HomePage scrollYProgress={scrollYProgress} />
           </motion.section>
 
-          <motion.section id="about" className="snap-start relative z-[50]"
+          <motion.section id="about" ref = {aboutRef} className="snap-start relative z-[50]"
             style={{
               y: aboutypos
             }}
-          >
-            <AboutMe scrollYProgress={scrollYProgress} fontClass={bebas.className}/>
+          > 
+            <div ref={aboutRef}>
+              <AboutMe scrollYProgress={scrollYProgress} fontClass={bebas.className}/>
+            </div>
           </motion.section>
 
-          <motion.section id="experience" className="snap-start min-h-screen"
+          <motion.section id="experience" ref = {experienceRef} className="snap-start min-h-screen"
           style={{
             y: experienceypos
           }}>
             <Experience />
           </motion.section>
 
-          <motion.section id="projects" className="snap-start min-h-screen"
+          <motion.section id="projects" ref = {projectsRef} className="snap-start min-h-screen"
             style={{
               y: projectsypos
             }}
