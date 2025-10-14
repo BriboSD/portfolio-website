@@ -1,7 +1,7 @@
 
 "use client";
 import { motion, useTransform } from "framer-motion";
-import { Github } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 
 export default function HomePage({scrollYProgress}) {
   const ypos = useTransform(scrollYProgress, [0, 0.25], [0, 400]);
@@ -51,22 +51,41 @@ export default function HomePage({scrollYProgress}) {
         />
 
         {/* GitHub Button */}
-        <motion.a
-          href="https://github.com/BriboSD"
-          target="_blank"
-          rel="noopener noreferrer"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2, duration: 0.8 }}
-          className="
-            absolute left-1/2 transform translate-y-[75dvh] -translate-x-1/2 mt-4
-            bg-amber-800 text-[#ffedd5] p-3 rounded-full
-            hover:bg-amber-600
-            transition-colors duration-300
-          "
-        >
-          <Github size={32} />
-        </motion.a>
+        <motion.div className="absolute transform translate-y-[75dvh] flex flex-row gap-6">
+          <motion.a
+            href="https://github.com/BriboSD"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2, duration: 0.8 }}
+            className="
+              bg-amber-800 text-[#ffedd5] p-3 rounded-full
+              hover:bg-amber-600
+              transition-colors duration-300
+            "
+          >
+            <Github size={32} />
+          </motion.a>
+
+          <motion.a
+            href="https://www.linkedin.com/in/gabriel-schwinden-1951632b3"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.2, duration: 0.8 }} // small delay offset for nice stagger
+            className="
+              bg-amber-800 text-[#ffedd5] text-white p-3 rounded-full
+              hover:bg-amber-600
+              transition-colors duration-300
+            "
+          >
+            <Linkedin size={32} />
+          </motion.a>
+
+        </motion.div>
+        
       </div>
   
         {/* Text */}
