@@ -73,9 +73,9 @@ export default function Home() {
       <>
 
         {/* tab navigation bar */}
-        <nav className="sticky top-0 w-full bg-[#ffedd5] text-amber-800 text-1xl font-bold z-[70] py-4 flex justify-center">
+        <nav className="sticky top-0 w-full bg-[#ffedd5] text-amber-800 text-sm md:text-xl font-bold z-[70] py-3 flex flex-wrap justify-center gap-6 lg:gap-10 px-2">
           {/* Tab logic */}
-          <div className="flex space-x-22 mb-4 mt-1">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-10">
           <motion.div
             initial={{ x: "-100vw", y: 0, width: "100vw", height: "4px" }}
             animate={{
@@ -136,35 +136,35 @@ export default function Home() {
         </nav>
 
         <div className="relative w-full scroll-smooth overflow-hidden snap-y snap-mandatory pt-0">
-        <motion.section id="homepage" className="snap-start scroll-mt-[20vh] min-h-screen relative z-[10]">
-          <div ref={homeRef}>
-            <HomePage scrollYProgress={scrollYProgress} />
-          </div>
-        </motion.section>
+          <motion.section id="homepage" className="snap-start scroll-mt-[20vh] min-h-[50dvh] sm:min-h-[150dvh] sm:h-[10dvh] lg:min-h-screen relative z-[10]">
+            <div ref={homeRef}>
+              <HomePage scrollYProgress={scrollYProgress} />
+            </div>
+          </motion.section>
 
-        <motion.section id="about" className="snap-start relative scroll-mt-[20vh] z-[50]"
-          style={{ y: aboutypos }}
-        >
-          <div ref={aboutRef}>
-            <AboutMe scrollYProgress={scrollYProgress} fontClass={bebas.className}/>
-          </div>
-        </motion.section>
+          <motion.section id="about" className="snap-start relative scroll-mt-[20vh] z-[50]"
+            style={{ y: aboutypos }}
+          >
+            <div ref={aboutRef}>
+              <AboutMe scrollYProgress={scrollYProgress} fontClass={bebas.className}/>
+            </div>
+          </motion.section>
 
-        <motion.section id="experience" className="snap-start scroll-mt-[20vh] min-h-screen"
-          style={{ y: experienceypos }}
-        >
-          <div ref={experienceRef}>
-            <Experience />
-          </div>
-        </motion.section>
+          <motion.section id="experience" className="snap-start scroll-mt-[20vh] min-h-screen"
+            style={{ y: experienceypos }}
+          >
+            <div ref={experienceRef}>
+              <Experience />
+            </div>
+          </motion.section>
 
-        <motion.section id="projects" className="snap-start min-h-screen"
-          style={{ y: projectsypos }}
-        >
-          <div ref={projectsRef}>
-            <Projects />
-          </div>
-        </motion.section>
+          <motion.section id="projects" className="snap-start min-h-screen"
+            style={{ y: projectsypos }}
+          >
+            <div ref={projectsRef}>
+              <Projects />
+            </div>
+          </motion.section>
 
           
         </div>

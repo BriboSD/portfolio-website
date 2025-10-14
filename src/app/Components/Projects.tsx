@@ -14,7 +14,7 @@ export default function Projects() {
           projLink: "https://github.com/kcabalonga/Bpop"
         },
         {
-          image: "/images/website.png",
+          image: "/images/Website.png",
           title: "Personal Website",
           description:
             "I created this website without a templae, using react and the motion library for animations. I used nextjs as my react framework, and hosted this website through Vercel. Thanks for stopping by!",
