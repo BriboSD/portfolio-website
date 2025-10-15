@@ -9,64 +9,73 @@ export default function AboutMe( {scrollYProgress, fontClass }) {
     return (
         // overall section container
         <motion.div
-          className="flex flex-row justify-center items-start min-h-[60vh] px-20 py-14 bg-orange-200 text-amber-100 z-[60]"
+          className="flex flex-col lg:flex-row justify-center min-h-[60vh] py-14 bg-orange-200 text-amber-100 z-[60]"
         >
           {/* "me at a glance part"*/}
           <motion.div
-            className="flex flex-col w-1/2 pr-12 ml-15 space-y-6"
+            className="flex flex-col items-center lg:pr-12 space-y-6"
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0,  }}
             transition={{ duration: 1, delay: 0.2}}
           >
         
             {/* Title */}
-            <h1 className={`${fontClass} text-6xl tracking-wide text-red-700 w-[400px]`}>
+            <h1 className={`${fontClass} text-3xl w-[160px] lg:text-6xl tracking-wide text-red-700 transform lg:translate-x-[20px] lg:w-[400px]`}>
               ME AT A GLANCE
             </h1>
     
             {/* bullet point section */}
-            <ul className="text-l leading-relaxed font-semibold space-y-4">
-          <li>
-            <span className="text-amber-800">School:</span>{" "}
-            <span className="text-yellow-600">
-              University of California, Los Angeles
-            </span>
-          </li>
-          <li>
-            <span className="text-amber-800">Disciplines:</span>{" "}
-            <span className="text-yellow-600">
-              Cognitive Science Major, Data Science Engineering Minor
-            </span>
-          </li>
-          <li>
-            <span className="text-amber-800">Year:</span>{" "}
-            <span className="text-yellow-600">Undergrad Junior</span>
-          </li>
-          <li>
-            <span className="text-amber-800">Hometown:</span>{" "}
-            <span className="text-yellow-600">Washington, D.C.</span>
-          </li>
-          <li>
-            <span className="text-amber-800">Hobbies:</span>{" "}
-            <span className="text-yellow-600">
-              Travel, Board Games, Horror Movies, Video Games
-            </span>
-          </li>
-        </ul>
+            <ul className="text-xs pl-4 pr-1 lg:text-base lg:w-[400px] leading-relaxed font-semibold space-y-4">
+              <li>
+                <span className="text-amber-800">School:</span>{" "}
+                <span className="text-yellow-600">
+                  University of California, Los Angeles
+                </span>
+              </li>
+              <li>
+                <span className="text-amber-800">Disciplines:</span>{" "}
+                <span className="text-yellow-600">
+                  Cognitive Science Major, Data Science Engineering Minor
+                </span>
+              </li>
+              <li>
+                <span className="text-amber-800">Year:</span>{" "}
+                <span className="text-yellow-600">Undergrad Junior</span>
+              </li>
+              <li>
+                <span className="text-amber-800">Hometown:</span>{" "}
+                <span className="text-yellow-600">Washington, D.C.</span>
+              </li>
+              <li>
+                <span className="text-amber-800">Hobbies:</span>{" "}
+                <span className="text-yellow-600">
+                  Travel, Board Games, Horror Movies, Video Games
+                </span>
+              </li>
+            </ul>
           </motion.div>
 
-        {/* line divider*/}
+          {/* line divider for computer interface*/}
           <motion.div
             initial={{ scaleY: 0 }}
             animate={{ scaleY: 1 }}
             transition={{ duration: 0.6, delay: 1, ease: "easeInOut" }}
-            className="mr-20 mt-30 w-[4px] bg-red-600 mx-8 origin-top"
+            className="hidden lg:block lg:mr-20 lg:mt-30 lg:w-[4px] bg-red-600 mx-8 origin-top"
             style={{ height: "20vh" }}
             />
+
+          {/* line divider for mobile interface*/}
+
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 1, ease: "easeInOut" }}
+            className="block lg:hidden h-[1px] w-[40vw] bg-red-600 my-8 self-center"
+          />
     
           {/* more in-depth overview thing */}
           <motion.div
-            className="flex flex-col w-[1000px] mt-20 text-l leading-relaxed text-yellow-700 font-medium mr-10"
+            className="flex flex-col text-center w-full pr-5 pl-5 lg:w-[50dvw] lg:mt-10 items-center text-xs lg:text-lg leading-relaxed text-yellow-700 font-medium"
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2 }}

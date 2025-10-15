@@ -63,10 +63,10 @@ export default function HomePage({scrollYProgress}) {
                 hover:bg-amber-600
                 transition-colors duration-300
                 flex items-center justify-center
-                w-10 h-10 lg:w-20 lg:h-20
+                w-10 h-10 lg:w-18 lg:h-18
               "
             >
-              <Github className="w-8 h-8 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 " />
+              <Github className="w-8 h-8 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9" />
             </motion.a>
 
             <motion.a
@@ -81,10 +81,10 @@ export default function HomePage({scrollYProgress}) {
                 hover:bg-amber-600
                 transition-colors duration-300
                 flex items-center justify-center
-                w-10 h-10 lg:w-20 lg:h-20
+                w-10 h-10 lg:w-18 lg:h-18
               "
             >
-              <Linkedin className="w-8 h-8 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 " />
+              <Linkedin className="w-8 h-8 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 " />
             </motion.a>
 
           </motion.div>
