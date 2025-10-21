@@ -19,7 +19,7 @@ export default function Experience() {
             {/* phone screen line*/}
             <motion.div 
               initial={{ height: 0 }}
-              animate={{ height: "150vh" }}
+              animate={{ height: "140dvh" }}
               transition={{ duration: 0.6, delay: 1, ease: "easeIn" }}
               className="block lg:hidden mt-[110px] absolute mx-auto w-[4px] bg-red-600 z-[60]"
             />
