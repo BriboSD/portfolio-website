@@ -8,6 +8,8 @@ import Experience from "./Components/Experience";
 import Projects from "./Components/Projects";
 import AboutMe from "./Components/AboutMe";
 import { Bebas_Neue } from 'next/font/google'
+import { Analytics } from "@vercel/analytics/next"
+
 
 
 
@@ -134,7 +136,7 @@ export default function Home() {
           })}
           </div>
         </nav>
-
+        <Analytics />
         <div className="relative w-full scroll-smooth overflow-hidden snap-y snap-mandatory pt-0">
           <motion.section id="homepage" className="snap-start scroll-mt-[20vh] min-h-[50dvh] sm:min-h-[150dvh] sm:h-[10dvh] lg:min-h-screen relative z-[10]">
             <div ref={homeRef}>
@@ -165,8 +167,6 @@ export default function Home() {
               <Projects />
             </div>
           </motion.section>
-
-          
         </div>
 
         <footer className="w-full text-center text-xs lg:text-lg lg:py-10 mb-2 text-amber-800 font-semibold z-[100]">
