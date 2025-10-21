@@ -41,18 +41,18 @@ export default function Projects() {
 
     return (
         <motion.div
-        className="flex flex-col items-center min-h-[60vh] px-20 py-30 gap-y-40 bg-[#FFD3A8] z-[60]" //bg-slate-300
+        className="flex flex-col items-center min-h-[60vh] px-10 py-15 lg:px-20 lg:py-30 gap-y-10 lg:gap-y-40 bg-[#FFD3A8] z-[60]" //bg-slate-300
         >
             <motion.div
             initial={{opacity: 0, y: -50}}
             whileInView={{opacity: 1, y: 0}}
             transition={{duration: 1, delay: 0.15}}
-            className="text-4xl text-amber-700"
+            className=" text-2xl lg:text-4xl text-amber-700"
             >
               Projects
             </motion.div>
         
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-9xl mx-auto">
+            <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:max-w-9xl mx-auto">
                 {projects.map((project, index) => (
                     <ProjectDesc
                     key={index}
