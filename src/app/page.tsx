@@ -169,7 +169,7 @@ export default function Home() {
           
         </div>
 
-        <footer className="w-full text-center py-10 text-amber-800 font-semibold z-[100]">
+        <footer className="w-full text-center text-xs lg:text-lg lg:py-10 mb-2 text-amber-800 font-semibold z-[100]">
           You can contact me at
           <a
             href="mailto:GSchwinden232@gmail.com"

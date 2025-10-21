@@ -10,20 +10,20 @@ export default function ProjectDesc({ image, title, description, techUsed, projl
       href={projlink}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative w-[7W0dvh] h-[50dvh] bg-orange-100 shadow-lg overflow-hidden cursor-pointer"
+      className="relative lg:w-[7W0dvh] h-[30dvh] sm:h-[90dvh] lg:h-[50dvh] bg-orange-100 shadow-lg overflow-hidden cursor-pointer"
       initial="rest"
       whileHover="hover"
       animate="rest"
     >
 
       <div className="p-0">
-        <h3 className="text-xl font-semibold mb-3 mt-3 text-amber-800 text-center">{title}</h3>
+        <h3 className="text-md lg:text-xl font-semibold mb-3 mt-3 text-amber-800 text-center">{title}</h3>
       </div>
 
       <motion.img
         src={image}
         alt={title}
-        className="w-full h-[45dvh] transform -translate-y-[2%]  object-cover z-10"
+        className="w-full lg:h-[45dvh] transform -translate-y-[2%]"
         variants={{
             hover: { scale: 1.19},
           }}
