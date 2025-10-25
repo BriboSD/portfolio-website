@@ -175,7 +175,7 @@ export default function Home() {
             href="mailto:GSchwinden232@gmail.com"
             className="text-blue-700 underline ml-2 hover:text-blue-900"
           >
-            GSchwinden232@gmail.com
+            GSchwinden23@gmail.com
           </a>
         </footer>
       </>
