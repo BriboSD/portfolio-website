@@ -27,28 +27,28 @@ export default function AboutMe( {scrollYProgress, fontClass }) {
             {/* bullet point section */}
             <ul className="text-xs pl-4 pr-1 lg:text-base lg:w-[400px] leading-relaxed font-semibold space-y-4">
               <li>
-                <span className="text-amber-800">School:</span>{" "}
-                <span className="text-yellow-600">
+                <span className="text-neutral-800">School:</span>{" "}
+                <span className="text-rose-800">
                   University of California, Los Angeles
                 </span>
               </li>
               <li>
-                <span className="text-amber-800">Disciplines:</span>{" "}
-                <span className="text-yellow-600">
+                <span className="text-neutral-800">Disciplines:</span>{" "}
+                <span className="text-rose-800">
                   Cognitive Science Major, Data Science Engineering Minor
                 </span>
               </li>
               <li>
-                <span className="text-amber-800">Year:</span>{" "}
-                <span className="text-yellow-600">Undergrad Junior</span>
+                <span className="text-neutral-800">Year:</span>{" "}
+                <span className="text-rose-800">Undergrad Junior</span>
               </li>
               <li>
-                <span className="text-amber-800">Hometown:</span>{" "}
-                <span className="text-yellow-600">Washington, D.C.</span>
+                <span className="text-neutral-700">Hometown:</span>{" "}
+                <span className="text-rose-800">Washington, D.C.</span>
               </li>
               <li>
-                <span className="text-amber-800">Hobbies:</span>{" "}
-                <span className="text-yellow-600">
+                <span className="text-neutral-800">Hobbies:</span>{" "}
+                <span className="text-rose-800">
                   Travel, Board Games, Horror Movies, Video Games
                 </span>
               </li>
@@ -75,7 +75,7 @@ export default function AboutMe( {scrollYProgress, fontClass }) {
     
           {/* more in-depth overview thing */}
           <motion.div
-            className="flex flex-col text-center w-full pr-5 pl-5 lg:w-[50dvw] lg:mt-10 items-center text-xs lg:text-lg leading-relaxed text-yellow-700 font-medium"
+            className="flex flex-col text-center w-full pr-5 pl-5 lg:w-[50dvw] lg:mt-10 items-center text-xs lg:text-lg leading-relaxed text-neutral-700 font-medium"
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
