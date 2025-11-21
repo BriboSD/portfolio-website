@@ -75,7 +75,7 @@ export default function AboutMe( {scrollYProgress, fontClass }) {
     
           {/* more in-depth overview thing */}
           <motion.div
-            className="flex flex-col text-center w-full pr-5 pl-5 lg:w-[50dvw] lg:mt-10 items-center text-xs lg:text-lg leading-relaxed text-neutral-700 font-medium"
+            className="flex flex-col text-center w-full pr-5 pl-5 lg:w-[50dvw] lg:mt-10 items-center text-xs lg:text-lg leading-relaxed text-neutral-700 font-semibold font-medium"
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2 }}

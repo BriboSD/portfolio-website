@@ -6,6 +6,14 @@ import ProjectDesc from "./ProjectDesc"
 export default function Projects() {
     const projects = [
         {
+          image: "/images/BruinPlanImg.png",
+          title: "BruinPlan",
+          description:
+            "A centralized website designed to help UCLA students create and maintain class schedules and four year plans, helping them stay track for graduation. Developed within UCLA's premier product dvelopment orgnaization, DevX.",
+          techUsed: ["Python", "Django", "Supabase"],
+          projLink: "https://github.com/apant123/bruinplan"
+        },
+        {
           image: "/images/bpop.png",
           title: "BPop",
           description:
@@ -17,7 +25,7 @@ export default function Projects() {
           image: "/images/Website.png",
           title: "Personal Website",
           description:
-            "I created this website without a templae, using react and the motion library for animations. I used nextjs as my react framework, and hosted this website through Vercel. Thanks for stopping by!",
+            "I created this website without a template, using react and the motion library for animations. I used nextjs as my react framework, and hosted this website through Vercel. Thanks for stopping by!",
           techUsed: ["React", "Javascript", "Tailwind css"],
           projLink: "https://github.com/BriboSD/portfolio-website"
         },
@@ -29,6 +37,7 @@ export default function Projects() {
           techUsed: ["Python", "PyTorch", "Machine Learning"],
           projLink: "https://github.com/BriboSD/CNNmodel/blob/main/Gabriel'sCNNModel.ipynb"
         },
+        
         {
             image: "/images/superAP.png",
             title: "SAP Reinforcement Learning Model (work in progress)",
@@ -49,7 +58,7 @@ export default function Projects() {
             transition={{duration: 1, delay: 0.15}}
             className=" text-2xl lg:text-4xl text-amber-700"
             >
-              Projects
+              Projects (Click to see repo)
             </motion.div>
         
             <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:max-w-9xl mx-auto">
