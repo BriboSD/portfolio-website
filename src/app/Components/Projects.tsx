@@ -9,7 +9,7 @@ export default function Projects() {
           image: "/images/BruinPlanImg.png",
           title: "BruinPlan",
           description:
-            "A centralized website designed to help UCLA students create and maintain class schedules and four year plans, helping them stay track for graduation. Developed within UCLA's premier product dvelopment orgnaization, DevX.",
+            "A centralized website designed to help UCLA students create and maintain class schedules and four year plans, helping them stay on track for graduation. Worked on the Django backend writing routes for the supabase database. Developed within UCLA's premier product dvelopment organization, DevX.",
           techUsed: ["Python", "Django", "Supabase"],
           projLink: "https://github.com/apant123/bruinplan"
         },
