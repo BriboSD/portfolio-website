@@ -50,7 +50,7 @@ export default function Experience() {
               >
                 <JobDesc name={"The Daily Bruin"} 
                 position={"Data Journalism Contributor"} 
-                date={"October 2024 - June 2025"} 
+                date={"October 2024 - Present"} 
                 location={"Los Angeles, CA"} 
                 description={[
                   "Requested Data, made graphs using chart.js, and collaborated on large shared github repos",
